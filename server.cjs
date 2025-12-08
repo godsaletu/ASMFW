@@ -2,7 +2,7 @@ const jsonServer = require("json-server");
 const path = require("path");
 
 const server = jsonServer.create();
-const router = jsonServer.router(path.join(__dirname, "db.json"));
+const router = jsonServer.router(path.join(__dirname, "data.json")); // <-- sửa ở đây
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
@@ -13,7 +13,7 @@ server.get("/", (req, res) => {
   res.send("🚀 JSON Server chạy OK trên Render!");
 });
 
-// ⭐ QUAN TRỌNG: GẮN ROUTER JSON SERVER
+// Gắn router JSON Server
 server.use(router);
 
 const PORT = process.env.PORT || 3000;
