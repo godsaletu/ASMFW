@@ -16,6 +16,6 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/**/*.d.ts"   ← **THÊM DÒNG NÀY**
+    "src/**/*.d.ts"
   ]
 }
