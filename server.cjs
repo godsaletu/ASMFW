@@ -1,40 +1,30 @@
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('data.json')
-const middlewares = jsonServer.defaults()
+import jsonServer from "json-server";
+import path from "path";
+import { fileURLToPath } from "url";
 
-server.use(middlewares)
-server.use(jsonServer.bodyParser)
+// Lấy đường dẫn tuyệt đối
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// CORS fix
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization')
-  
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(200)
-  }
-  next()
-})
+const server = jsonServer.create();
+const router = jsonServer.router(path.join(__dirname, "db.json"));
+const middlewares = jsonServer.defaults();
 
-// Custom routes nếu cần
-server.post('/api/register', (req, res) => {
-  const newUser = req.body
-  // Thêm logic xử lý đặc biệt nếu cần
-  res.json({ success: true, user: newUser })
-})
+// Middleware mặc định
+server.use(middlewares);
+server.use(jsonServer.bodyParser);
 
-server.use(router)
+// 👉 THÊM ROUTE "/" CHO RENDER
+server.get("/", (req, res) => {
+  res.send("🚀 JSON Server đã chạy thành công trên Render.com!");
+});
 
-// Dùng port 3001 để tránh conflict
-const PORT = process.env.PORT || 3001
+// Sử dụng router
+server.use(router);
+
+// Cổng Render cung cấp
+const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => {
-  console.log(`✅ JSON Server is running on http://localhost:${PORT}`)
-  console.log(`✅ Routes:`)
-  console.log(`   GET  /users`)
-  console.log(`   POST /users`)
-  console.log(`   GET  /contacts`)
-  console.log(`   POST /contacts`)
-})
+  console.log(`🚀 JSON Server is running on http://localhost:${PORT}`);
+});
