@@ -1,7 +1,8 @@
 <script setup>
 import { ref, computed, onMounted } from "vue"
 
-const API_URL = 'https://asmfw-3.onrender.com'
+const API_URL = 'https://asmfw-4.onrender.com'
+
 
 
 const props = defineProps({
