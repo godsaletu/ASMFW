@@ -8,7 +8,8 @@ const props = defineProps({
   }
 })
 
-const API_URL = 'http://localhost:3001'
+const API_URL = 'https://asmfw-3.onrender.com'
+
 
 // Kiểm tra đăng nhập
 const isLoggedIn = computed(() => localStorage.getItem('isLoggedIn') === 'true')
