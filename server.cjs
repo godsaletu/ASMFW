@@ -28,7 +28,8 @@ server.post('/api/register', (req, res) => {
 server.use(router)
 
 // Dùng port 3001 để tránh conflict
-const PORT = 3001
+const PORT = process.env.PORT || 3001
+
 server.listen(PORT, () => {
   console.log(`✅ JSON Server is running on http://localhost:${PORT}`)
   console.log(`✅ Routes:`)
