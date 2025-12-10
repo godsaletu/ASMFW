@@ -13,12 +13,6 @@ const middlewares = jsonServer.defaults();
 // =======================
 const cors = require('cors');
 
-// Cho phép front-end của bạn gọi API
-server.use(cors({
-  origin: 'https://asmfw.vercel.app', // hoặc '*' nếu muốn mở cho tất cả
-  methods: ['GET','POST','PUT','DELETE','OPTIONS','PATCH'],
-  allowedHeaders: ['Origin','X-Requested-With','Content-Type','Accept','Authorization']
-}));
 
 // =======================
 // HEADER CHO GOOGLE POPUP
