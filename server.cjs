@@ -41,6 +41,28 @@ server.use(jsonServer.bodyParser);
 server.use(middlewares);
 
 // =======================
+// 0. ROOT ROUTE - HIỂN THỊ THÔNG TIN SERVER
+// =======================
+server.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: '🚀 API Server đang chạy!',
+    version: '1.0.0',
+    author: 'Huỳnh Tuấn Anh',
+    timestamp: new Date().toISOString(),
+    endpoints: [
+      { method: 'GET', path: '/api', description: 'Truy cập JSON database' },
+      { method: 'GET', path: '/api/users', description: 'Lấy danh sách người dùng' },
+      { method: 'GET', path: '/api/contacts', description: 'Lấy danh sách liên hệ' },
+      { method: 'POST', path: '/api/send-contact-mail', description: 'Gửi email liên hệ từ form' },
+      { method: 'POST', path: '/api/send-reply', description: 'Gửi phản hồi từ admin' },
+      { method: 'POST', path: '/api/send-mail', description: 'Gửi email đơn giản' }
+    ],
+    documentation: 'Truy cập /api để xem toàn bộ database'
+  });
+});
+
+// =======================
 // 1. JSON-SERVER ROUTES
 // =======================
 server.use('/api', router); // Truy cập data qua /api/users, /api/contacts
@@ -195,4 +217,5 @@ server.listen(PORT, () => {
   console.log(`🚀 Server chạy tại http://localhost:${PORT}`);
   console.log(`📧 Gmail user: ${process.env.GMAIL_USER}`);
   console.log(`📁 Database: http://localhost:${PORT}/api`);
+  console.log(`🏠 Root API info: http://localhost:${PORT}/`);
 });
