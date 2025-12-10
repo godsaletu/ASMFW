@@ -22,7 +22,7 @@ server.use((req, res, next) => {
 // =======================
 // 📌 CẤU HÌNH RESEND.COM
 // =======================
-const resend = new Resend('re_asKo8eZt_KGY83vpa7apDwMEqki9pPuSn');
+const resend = new Resend(process.env.RESEND_API_KEY);
 const ADMIN_EMAIL = "anhtienong@gmail.com";
 const FROM_EMAIL = "onboarding@resend.dev";
 
