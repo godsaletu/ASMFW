@@ -8,13 +8,53 @@ const props = defineProps({
   }
 })
 
-const API_URL = 'https://asmfw-5.onrender.com'
+const API_URL = 'http://localhost:3001'
 
+// FIX: Sửa computed để kiểm tra cả Google và local login
+const isLoggedIn = computed(() => {
+  // Kiểm tra local login
+  const localLogin = localStorage.getItem('isLoggedIn') === 'true' || 
+                     sessionStorage.getItem('isLoggedIn') === 'true';
+  
+  // Kiểm tra Google login (thông qua loginType)
+  const loginType = localStorage.getItem('loginType') || sessionStorage.getItem('loginType');
+  const googleLogin = loginType === 'google';
+  
+  return localLogin || googleLogin;
+})
 
-
-// Kiểm tra đăng nhập
-const isLoggedIn = computed(() => localStorage.getItem('isLoggedIn') === 'true')
-const currentUser = computed(() => JSON.parse(localStorage.getItem('currentUser') || 'null'))
+const currentUser = computed(() => {
+  // Ưu tiên lấy từ localStorage
+  let user = localStorage.getItem('currentUser');
+  
+  if (!user) {
+    // Thử từ sessionStorage
+    user = sessionStorage.getItem('currentUser');
+  }
+  
+  // Nếu không tìm thấy user, kiểm tra loginType
+  if (!user) {
+    const loginType = localStorage.getItem('loginType') || sessionStorage.getItem('loginType');
+    if (loginType === 'google') {
+      // Đây là Google user, trả về object mặc định
+      return {
+        id: 'google_user',
+        email: 'google_user@example.com',
+        full_name: 'Google User',
+        fullName: 'Google User',
+        role: 'user',
+        isLoggedIn: true,
+        loginType: 'google'
+      };
+    }
+  }
+  
+  try {
+    return user ? JSON.parse(user) : null;
+  } catch {
+    return null;
+  }
+})
 
 // Lấy dữ liệu từ props
 const contactInfo = computed(() => props.dulieu?.contact_info || {})
@@ -65,7 +105,7 @@ const goToLogin = () => {
   }
 }
 
-// Submit form - GỬI LÊN API
+// Submit form - GỬI LÊN API VÀ GỬI MAIL
 const handleSubmit = async () => {
   if (!isLoggedIn.value) {
     alert("Vui lòng đăng nhập để gửi tin nhắn!")
@@ -79,6 +119,8 @@ const handleSubmit = async () => {
   }
 
   loading.value = true
+  submitSuccess.value = false
+  submitError.value = false
 
   try {
     // Tạo contact
@@ -95,14 +137,54 @@ const handleSubmit = async () => {
       user_id: currentUser.value?.id || null
     }
 
-    // Gửi lên JSON Server
-    const response = await fetch(`${API_URL}/contacts`, {
+    // 1. Lưu vào JSON Server
+    const saveResponse = await fetch(`${API_URL}/contacts`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newContact)
     })
 
-    if (response.ok) {
+    if (!saveResponse.ok) {
+      throw new Error('Lưu liên hệ thất bại')
+    }
+
+    // 2. GỬI EMAIL THÔNG BÁO ĐẾN ADMIN
+    const mailResponse = await fetch(`${API_URL}/api/send-contact-mail`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.value.name,
+        email: formData.value.email,
+        subject: formData.value.subject,
+        message: formData.value.message,
+        type: formData.value.type || 'other'
+      })
+    })
+
+    const mailResult = await mailResponse.json()
+
+    if (mailResult.success) {
+      // Thành công cả 2 bước
+      submitSuccess.value = true
+      
+      // Reset form
+      formData.value = {
+        name: isLoggedIn.value ? currentUser.value?.fullName || currentUser.value?.full_name || '' : '',
+        email: isLoggedIn.value ? currentUser.value?.email || '' : '',
+        subject: '',
+        message: '',
+        type: '',
+        newsletter: false
+      }
+      
+      // Tự động tắt thông báo sau 5 giây
+      setTimeout(() => { 
+        submitSuccess.value = false 
+      }, 5000)
+      
+      console.log('Gửi liên hệ thành công và đã gửi mail thông báo!')
+    } else {
+      // Lưu thành công nhưng gửi mail thất bại
       submitSuccess.value = true
       formData.value = {
         name: isLoggedIn.value ? currentUser.value?.fullName || currentUser.value?.full_name || '' : '',
@@ -112,13 +194,24 @@ const handleSubmit = async () => {
         type: '',
         newsletter: false
       }
-      setTimeout(() => { submitSuccess.value = false }, 3000)
-    } else {
-      throw new Error('Gửi thất bại')
+      
+      setTimeout(() => { 
+        submitSuccess.value = false 
+      }, 5000)
+      
+      console.log('Lưu liên hệ thành công nhưng gửi mail thất bại. Vui lòng kiểm tra cấu hình email.')
     }
+
   } catch (error) {
+    console.error('Submit error:', error)
     submitError.value = true
-    alert('Có lỗi xảy ra!')
+    
+    // Hiển thị lỗi trong 5 giây
+    setTimeout(() => { 
+      submitError.value = false 
+    }, 5000)
+    
+    alert('Có lỗi xảy ra khi gửi liên hệ! Vui lòng thử lại sau.')
   } finally {
     loading.value = false
   }
@@ -132,6 +225,7 @@ onMounted(() => {
   }
 })
 </script>
+
 <template>
   <div class="lien-he-page">
     <div class="container mt-4">
@@ -320,13 +414,22 @@ onMounted(() => {
               <!-- Success message -->
               <div v-if="submitSuccess" class="alert alert-success mt-4">
                 <i class="bi bi-check-circle me-2"></i>
-                Tin nhắn đã được gửi thành công! Tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.
+                <strong>Thành công!</strong> Tin nhắn đã được gửi thành công! Tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.
               </div>
               
               <!-- Error message -->
               <div v-if="submitError" class="alert alert-danger mt-4">
                 <i class="bi bi-exclamation-circle me-2"></i>
-                Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau!
+                <strong>Lỗi!</strong> Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau!
+              </div>
+              
+              <!-- Thông tin thêm -->
+              <div class="alert alert-info mt-4">
+                <i class="bi bi-info-circle me-2"></i>
+                <small>
+                  <strong>Lưu ý:</strong> Sau khi gửi, bạn sẽ nhận được email xác nhận từ hệ thống. 
+                  Vui lòng kiểm tra cả hòm thư spam nếu không thấy email.
+                </small>
               </div>
             </div>
           </div>
@@ -392,7 +495,6 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .lien-he-page {
