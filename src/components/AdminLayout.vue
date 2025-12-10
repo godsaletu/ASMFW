@@ -1,9 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from "vue"
 
-const API_URL = 'https://asmfw-5.onrender.com'
-
-
+const API_URL = 'http://localhost:3001'
 
 const props = defineProps({
   data: {
@@ -18,7 +16,12 @@ const emit = defineEmits(['logout'])
 const activeTab = ref('users')
 const showAddUserForm = ref(false)
 const showContactModal = ref(false)
+const showReplyModal = ref(false)
 const selectedContact = ref(null)
+const replyMessage = ref("")
+const sendingReply = ref(false)
+const message = ref("")
+const messageType = ref("")
 
 // Dữ liệu
 const users = ref([])
@@ -34,7 +37,7 @@ const newUser = ref({
   joined_date: new Date().toISOString().split('T')[0]
 })
 
-// Load users từ JSON Server
+/* ========== LOAD USERS & CONTACTS ========== */
 const loadUsers = async () => {
   try {
     const response = await fetch(`${API_URL}/users`)
@@ -44,7 +47,6 @@ const loadUsers = async () => {
   }
 }
 
-// Load contacts từ JSON Server
 const loadContacts = async () => {
   try {
     const response = await fetch(`${API_URL}/contacts`)
@@ -54,76 +56,52 @@ const loadContacts = async () => {
   }
 }
 
-// Statistics cho contacts
+/* ========== CONTACT STATISTICS ========== */
 const newContacts = computed(() => 
   contacts.value.filter(c => c.status === 'new').length
 )
-
 const readContacts = computed(() => 
   contacts.value.filter(c => c.status === 'read').length
 )
-
 const repliedContacts = computed(() => 
   contacts.value.filter(c => c.status === 'replied').length
 )
 
-// Format date
+/* ========== FORMAT DATE ========== */
 const formatDate = (dateString) => {
   if (!dateString) return ''
-  const date = new Date(dateString)
-  return date.toLocaleDateString('vi-VN')
+  return new Date(dateString).toLocaleDateString('vi-VN')
 }
 
-// Status helpers cho contact
+/* ========== STATUS HELPERS ========== */
 const getStatusLabel = (status) => {
-  const labels = {
-    'new': 'Mới',
-    'read': 'Đã đọc', 
-    'replied': 'Đã trả lời'
-  }
+  const labels = { new: 'Mới', read: 'Đã đọc', replied: 'Đã trả lời' }
   return labels[status] || status
 }
 
 const getStatusBadge = (status) => {
-  const badges = {
-    'new': 'bg-danger',
-    'read': 'bg-info',
-    'replied': 'bg-success'
-  }
+  const badges = { new: 'bg-danger', read: 'bg-info', replied: 'bg-success' }
   return badges[status] || 'bg-secondary'
 }
 
-// User management
+/* ========== USER MANAGEMENT ========== */
 const addUser = async () => {
   if (!newUser.value.full_name || !newUser.value.email || !newUser.value.password) {
     alert('Vui lòng điền đầy đủ thông tin')
     return
   }
 
-  // Check if email already exists từ JSON Server
   const checkResponse = await fetch(`${API_URL}/users?email=${newUser.value.email}`)
   const existingUsers = await checkResponse.json()
-  if (existingUsers.length > 0) {
-    alert('Email đã tồn tại!')
-    return
-  }
 
-  // Create new user
-  const userToAdd = {
-    ...newUser.value,
-    id: Date.now(),
-    bio: 'Người dùng mới',
-    avatar: null
-  }
+  if (existingUsers.length > 0) return alert('Email đã tồn tại!')
 
-  // Save to JSON Server
   await fetch(`${API_URL}/users`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(userToAdd)
+    body: JSON.stringify({ ...newUser.value, id: Date.now() })
   })
 
-  // Reset form
   newUser.value = {
     full_name: '',
     email: '',
@@ -132,110 +110,140 @@ const addUser = async () => {
     status: 'active',
     joined_date: new Date().toISOString().split('T')[0]
   }
+
   showAddUserForm.value = false
-  await loadUsers() // Tải lại danh sách
+  loadUsers()
   alert('Thêm người dùng thành công!')
 }
 
 const editUser = async (user) => {
   const newRole = prompt(`Thay đổi vai trò cho ${user.full_name}:`, user.role)
-  if (newRole && ['admin', 'user'].includes(newRole)) {
-    // Update on JSON Server
-    await fetch(`${API_URL}/users/${user.id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ role: newRole })
-    })
-    await loadUsers() // Tải lại
-    alert(`Đã cập nhật vai trò thành ${newRole}`)
-  }
+  if (!newRole) return
+
+  await fetch(`${API_URL}/users/${user.id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ role: newRole })
+  })
+
+  loadUsers()
 }
 
 const deleteUser = async (userId) => {
-  if (confirm('Bạn có chắc chắn muốn xóa người dùng này?')) {
-    // Không cho xóa admin mặc định (ID: 1)
-    if (userId === 1) {
-      alert('Không thể xóa tài khoản admin mặc định!')
-      return
-    }
-
-    // Delete from JSON Server
-    await fetch(`${API_URL}/users/${userId}`, { method: 'DELETE' })
-    await loadUsers() // Tải lại
-    alert('Xóa người dùng thành công!')
-  }
+  if (!confirm('Bạn có chắc chắn muốn xóa người dùng này?')) return
+  await fetch(`${API_URL}/users/${userId}`, { method: 'DELETE' })
+  loadUsers()
 }
 
-// Contact management
+/* ========== CONTACT MANAGEMENT ========== */
 const viewContact = (contact) => {
   selectedContact.value = contact
   showContactModal.value = true
-  
-  // Mark as read if new
-  if (contact.status === 'new') {
-    markAsRead(contact.id)
-  }
+  if (contact.status === 'new') markAsRead(contact.id)
 }
 
 const markAsRead = async (contactId) => {
-  // Update status on JSON Server
   await fetch(`${API_URL}/contacts/${contactId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status: 'read' })
   })
-  await loadContacts()
+  loadContacts()
 }
 
 const markAsReplied = async (contactId) => {
-  // Update status on JSON Server
   await fetch(`${API_URL}/contacts/${contactId}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status: 'replied' })
   })
-  await loadContacts()
+  loadContacts()
 }
 
 const deleteContact = async (contactId) => {
   if (confirm('Bạn có chắc chắn muốn xóa liên hệ này?')) {
-    // Delete from JSON Server
     await fetch(`${API_URL}/contacts/${contactId}`, { method: 'DELETE' })
-    await loadContacts()
+    loadContacts()
   }
 }
 
 const clearAllContacts = async () => {
-  if (confirm('Bạn có chắc chắn muốn xóa TẤT CẢ liên hệ? Hành động này không thể hoàn tác!')) {
-    // Delete all contacts from JSON Server
+  if (!confirm('Bạn có chắc chắn muốn xóa TẤT CẢ liên hệ?')) return
+  
+  try {
     for (const contact of contacts.value) {
       await fetch(`${API_URL}/contacts/${contact.id}`, { method: 'DELETE' })
     }
-    await loadContacts()
+    loadContacts()
+    message.value = 'Đã xóa tất cả liên hệ'
+    messageType.value = 'success'
+  } catch (error) {
+    message.value = 'Lỗi khi xóa liên hệ'
+    messageType.value = 'error'
   }
 }
 
+/* ========== GỬI MAIL TỪ ADMIN ========== */
 const replyEmail = (contact) => {
-  // Mở email client để trả lời
-  const subject = encodeURIComponent(`Re: ${contact.subject}`)
-  const body = encodeURIComponent(`\n\n---\nTrả lời cho liên hệ từ: ${contact.name}`)
-  window.open(`mailto:${contact.email}?subject=${subject}&body=${body}`)
-  
-  // Mark as replied
-  markAsReplied(contact.id)
+  selectedContact.value = contact
+  replyMessage.value = ""
+  showReplyModal.value = true
+  showContactModal.value = false
 }
 
-// Logout
-const logout = () => {
-  emit('logout')
+const sendReply = async () => {
+  if (!replyMessage.value.trim()) {
+    alert("Vui lòng nhập nội dung phản hồi.")
+    return
+  }
+
+  sendingReply.value = true
+
+  try {
+    // Gửi mail phản hồi
+    const mailResponse = await fetch(`${API_URL}/api/send-reply`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        to: selectedContact.value.email,
+        subject: `Re: ${selectedContact.value.subject}`,
+        text: replyMessage.value,
+        replyToName: selectedContact.value.name
+      })
+    })
+    
+    const mailResult = await mailResponse.json()
+    
+    if (mailResult.success) {
+      // Cập nhật trạng thái đã trả lời
+      await markAsReplied(selectedContact.value.id)
+      
+      message.value = "Đã gửi phản hồi thành công!"
+      messageType.value = 'success'
+      showReplyModal.value = false
+      replyMessage.value = ""
+    } else {
+      throw new Error(mailResult.message)
+    }
+    
+  } catch (error) {
+    console.error("Send reply error:", error)
+    message.value = "Gửi phản hồi thất bại: " + error.message
+    messageType.value = 'error'
+  } finally {
+    sendingReply.value = false
+  }
 }
 
-// Initialize
+/* ========== LOGOUT ========== */
+const logout = () => emit('logout')
+
 onMounted(() => {
   loadUsers()
   loadContacts()
 })
 </script>
+
 <template>
   <div class="admin-layout">
     <div class="container mt-4">
@@ -468,6 +476,9 @@ onMounted(() => {
                               v-if="contact.status === 'new'">
                         <i class="bi bi-check"></i> Đã đọc
                       </button>
+                      <button class="btn btn-warning" @click="replyEmail(contact)">
+                        <i class="bi bi-reply"></i> Trả lời
+                      </button>
                       <button class="btn btn-danger" @click="deleteContact(contact.id)">
                         <i class="bi bi-trash"></i>
                       </button>
@@ -495,8 +506,10 @@ onMounted(() => {
                   <p><strong>Họ tên:</strong> {{ selectedContact.name }}</p>
                   <p><strong>Email:</strong> {{ selectedContact.email }}</p>
                   <p><strong>Tiêu đề:</strong> {{ selectedContact.subject }}</p>
+                  <p><strong>Loại:</strong> {{ selectedContact.type || 'Không xác định' }}</p>
                   <p><strong>Trạng thái:</strong> {{ getStatusLabel(selectedContact.status) }}</p>
                   <p><strong>Ngày gửi:</strong> {{ formatDate(selectedContact.date) }}</p>
+                  <p><strong>Nhận bản tin:</strong> {{ selectedContact.newsletter ? 'Có' : 'Không' }}</p>
                 </div>
                 <div class="col-md-6">
                   <p><strong>Nội dung:</strong></p>
@@ -516,6 +529,47 @@ onMounted(() => {
         </div>
       </div>
 
+      <!-- Modal trả lời email -->
+      <div class="modal fade" :class="{ show: showReplyModal }" v-if="showReplyModal" 
+           @click.self="showReplyModal = false">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+              <h5 class="modal-title">
+                <i class="bi bi-reply me-1"></i>Trả lời liên hệ
+              </h5>
+              <button type="button" class="btn-close btn-close-white" @click="showReplyModal = false"></button>
+            </div>
+            <div class="modal-body" v-if="selectedContact">
+              <div class="mb-3">
+                <p><strong>Gửi đến:</strong> {{ selectedContact.email }}</p>
+                <p><strong>Người gửi:</strong> {{ selectedContact.name }}</p>
+                <p><strong>Tiêu đề gốc:</strong> {{ selectedContact.subject }}</p>
+              </div>
+              
+              <div class="mb-3">
+                <label class="form-label fw-bold">Nội dung phản hồi:</label>
+                <textarea v-model="replyMessage" class="form-control" rows="8" 
+                          placeholder="Nhập nội dung phản hồi..."></textarea>
+                <div class="form-text">
+                  Nội dung này sẽ được gửi qua email đến người dùng.
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" @click="showReplyModal = false">
+                Hủy
+              </button>
+              <button type="button" class="btn btn-success" @click="sendReply" :disabled="sendingReply || !replyMessage.trim()">
+                <span v-if="sendingReply" class="spinner-border spinner-border-sm me-2"></span>
+                <i v-else class="bi bi-send me-2"></i>
+                {{ sendingReply ? 'Đang gửi...' : 'Gửi phản hồi' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Nút đăng xuất -->
       <div class="text-center mt-4">
         <button class="btn btn-outline-danger" @click="logout">
@@ -525,8 +579,6 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
-<!-- AdminLayout.vue - Phần cần bổ sung vào script setup -->
 
 
 <style scoped>
