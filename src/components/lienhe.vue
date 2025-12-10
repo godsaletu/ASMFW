@@ -7,8 +7,7 @@ const props = defineProps({
     default: () => ({})
   }
 })
-
-const API_URL = 'http://localhost:3001'
+const API_URL = 'https://asmfw-5.onrender.com'
 
 // FIX: Sửa computed để kiểm tra cả Google và local login
 const isLoggedIn = computed(() => {
