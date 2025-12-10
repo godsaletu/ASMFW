@@ -1,639 +1,1019 @@
 {
-    "personal_info": {
-        "id": 1,
-        "full_name": "HUỲNH TUẤN ANH",
-        "age": 19,
-        "title": "Full-Stack Web Developer",
-        "subtitle": "Chuyên Gia Phát Triển Web",
-        "location": "Tuyên Quang, Việt Nam",
-        "email": "huynhtuananh.dev@gmail.com",
-        "phone": "0972147819",
-        "birthday": "15/06/2006",
-        "hometown": "Tuyên Quang",
-        "major": "Web Design & Development",
-        "website": "https://tuananhportfolio.dev",
-        "github": "https://github.com/tuananhdev",
-        "linkedin": "https://linkedin.com/in/tuananhdev",
-        "facebook": "https://facebook.com/tuananhdev",
-        "about_me": "Tôi là sinh viên FPT Polytechnic với niềm đam mê mãnh liệt về lập trình web. Với hơn 3 năm kinh nghiệm phát triển ứng dụng web hiện đại, tôi luôn tìm kiếm những thách thức mới và công nghệ tiên tiến.",
-        "detailed_bio": "Tôi bắt đầu học lập trình từ năm 16 tuổi và nhanh chóng bị cuốn hút bởi thế giới web development. Tôi đã hoàn thành hơn 25 dự án cá nhân và thương mại, từ website đơn giản đến hệ thống phức tạp.",
-        "avatar": "/img/add.jpg",
-        "cover_image": "/img/cover.jpg"
+  "personal_info": {
+    "id": 1,
+    "full_name": "HUỲNH TUẤN ANH",
+    "age": 19,
+    "title": "Full-Stack Web Developer",
+    "subtitle": "Chuyên Gia Phát Triển Web",
+    "location": "Tuyên Quang, Việt Nam",
+    "email": "huynhtuananh.dev@gmail.com",
+    "phone": "0972147819",
+    "birthday": "15/06/2006",
+    "hometown": "Tuyên Quang",
+    "major": "Web Design & Development",
+    "website": "https://tuananhportfolio.dev",
+    "github": "https://github.com/tuananhdev",
+    "linkedin": "https://linkedin.com/in/tuananhdev",
+    "facebook": "https://facebook.com/tuananhdev",
+    "about_me": "Tôi là sinh viên FPT Polytechnic với niềm đam mê mãnh liệt về lập trình web. Với hơn 3 năm kinh nghiệm phát triển ứng dụng web hiện đại, tôi luôn tìm kiếm những thách thức mới và công nghệ tiên tiến.",
+    "detailed_bio": "Tôi bắt đầu học lập trình từ năm 16 tuổi và nhanh chóng bị cuốn hút bởi thế giới web development. Tôi đã hoàn thành hơn 25 dự án cá nhân và thương mại, từ website đơn giản đến hệ thống phức tạp.",
+    "avatar": "/img/add.jpg",
+    "cover_image": "/img/cover.jpg"
+  },
+  "users": [
+    {
+      "id": 1,
+      "full_name": "Huỳnh Tuấn Anh",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin",
+      "joined_date": "2024-01-01",
+      "avatar": "/img/1.png",
+      "status": "active",
+      "bio": "Quản trị viên hệ thống và Full-stack Developer",
+      "phone": "0972147819",
+      "location": "Tuyên Quang"
     },
-    
-    "users": [
-        {
-            "id": 1,
-            "full_name": "Huỳnh Tuấn Anh",
-            "email": "admin@example.com",
-            "password": "admin123",
-            "role": "admin",
-            "joined_date": "2024-01-01",
-            "avatar": "/img/1.png",
-            "status": "active",
-            "bio": "Quản trị viên hệ thống và Full-stack Developer",
-            "phone": "0972147819",
-            "location": "Tuyên Quang"
-        },
-        {
-            "id": 2,
-            "full_name": "Nguyễn Văn A",
-            "email": "user1@example.com",
-            "password": "user123",
-            "role": "user",
-            "joined_date": "2024-02-15",
-            "avatar": null,
-            "status": "active",
-            "bio": "Frontend Developer",
-            "phone": "0987654321",
-            "location": "Hà Nội"
-        },
-        {
-            "id": 3,
-            "full_name": "Trần Thị B",
-            "email": "user2@example.com",
-            "password": "user123",
-            "role": "user",
-            "joined_date": "2024-03-20",
-            "avatar": null,
-            "status": "active",
-            "bio": "UI/UX Designer",
-            "phone": "0961234567",
-            "location": "TP.HCM"
-        }
-    ],
-    
-    "education": [
-        {
-            "id": 1,
-            "institution": "Cao Đẳng FPT Polytechnic",
-            "degree": "Cao đẳng Thực hành",
-            "major": "Ứng dụng Phần mềm",
-            "period": "2023 - 2025",
-            "description": "Chuyên ngành Phát triển Web và Ứng dụng di động",
-            "detail": "Theo học chuyên sâu về phát triển web với các môn học như: Lập trình Frontend với HTML/CSS/JavaScript, Framework Vue.js và React, Thiết kế UI/UX, Phát triển Backend với Node.js, Quản trị cơ sở dữ liệu, và DevOps.",
-            "gpa": "3.8/4.0",
-            "achievements": [
-                "Điểm trung bình: 3.8/4.0",
-                "Tham gia cuộc thi Lập trình sinh viên 2024",
-                "Dự án tốt nghiệp xuất sắc"
-            ],
-            "image": "/img/edu1.jpg"
-        },
-        {
-            "id": 2,
-            "institution": "Tự Học & Online Courses",
-            "degree": "Các khóa học trực tuyến",
-            "major": "Lập trình Web",
-            "period": "2020 - Nay",
-            "description": "Vue.js, React, Node.js, REST API, UI/UX, Git, DevOps",
-            "detail": "Tự học qua các nền tảng online như Udemy, Coursera, FreeCodeCamp. Hoàn thành hơn 20 khóa học về phát triển web full-stack.",
-            "certifications": [
-                "Vue.js Masterclass",
-                "React Developer Certificate",
-                "Node.js Backend Development",
-                "AWS Cloud Practitioner"
-            ],
-            "image": "/img/edu2.jpg"
-        }
-    ],
-    
-    "work_experience": [
-        {
-            "id": 1,
-            "position": "Frontend Developer",
-            "company": "Freelance",
-            "location": "Remote",
-            "period": "2023 - Nay",
-            "description": "Làm việc freelance và phát triển giao diện website cho khách hàng cá nhân/doanh nghiệp.",
-            "detail": "Phát triển website responsive, tối ưu SEO, và đảm bảo trải nghiệm người dùng tốt nhất. Hợp tác với 15+ khách hàng từ startup đến doanh nghiệp vừa và nhỏ.",
-            "responsibilities": [
-                "Xây dựng website bằng Vue 3, React, Bootstrap, Tailwind",
-                "Thiết kế UI/UX tối ưu trải nghiệm người dùng",
-                "Responsive chuẩn mobile & SEO-friendly",
-                "Tối ưu hiệu suất và tốc độ tải trang"
-            ],
-            "technologies": ["Vue.js", "React", "Bootstrap", "Tailwind", "JavaScript", "TypeScript"],
-            "achievements": [
-                "Nâng cao hiệu suất website 40%",
-                "Tăng tỉ lệ chuyển đổi 25%",
-                "Nhận phản hồi 5 sao từ 12 khách hàng"
-            ],
-            "image": "/img/work1.jpg"
-        },
-        {
-            "id": 2,
-            "position": "Full-stack Developer",
-            "company": "Dự án cá nhân",
-            "location": "Tuyên Quang",
-            "period": "2022 - 2023",
-            "description": "Tự phát triển các dự án cá nhân, ứng dụng web hoàn chỉnh.",
-            "detail": "Xây dựng và triển khai các dự án full-stack từ concept đến production. Học và ứng dụng các công nghệ mới nhất trong thực tế.",
-            "responsibilities": [
-                "Xây dựng backend với Node.js, Express, MongoDB",
-                "RESTful API, bảo mật JWT, phân quyền người dùng",
-                "Deploy trên Render, Vercel, Netlify, Firebase",
-                "Thiết kế database và optimize queries"
-            ],
-            "technologies": ["Node.js", "Express.js", "MongoDB", "JWT", "REST API", "Docker", "AWS"],
-            "achievements": [
-                "Phát triển 8 dự án full-stack hoàn chỉnh",
-                "Tự học và ứng dụng Docker, CI/CD",
-                "Đạt 1000+ người dùng trên các dự án"
-            ],
-            "image": "/img/work2.jpg"
-        }
-    ],
-    
-    "skills": {
-        "technical": [
-            {
-                "category": "Frontend",
-                "skills": [
-                    {"name": "Vue.js & Vue 3", "level": 95, "icon": "vuejs", "detail": "Thành thạo Composition API, Vue Router, Pinia, Vuex"},
-                    {"name": "React.js", "level": 85, "icon": "react", "detail": "Hooks, Context API, Redux, Next.js"},
-                    {"name": "JavaScript/ES6+", "level": 90, "icon": "js", "detail": "Modern JavaScript, Async/Await, Promises"},
-                    {"name": "HTML5/CSS3", "level": 95, "icon": "html5", "detail": "Semantic HTML, CSS Grid, Flexbox, Animations"},
-                    {"name": "Bootstrap 5", "level": 90, "icon": "bootstrap", "detail": "Responsive design, Components, Utilities"},
-                    {"name": "Tailwind CSS", "level": 85, "icon": "tailwind", "detail": "Utility-first, Custom configurations"}
-                ]
-            },
-            {
-                "category": "Backend",
-                "skills": [
-                    {"name": "Node.js", "level": 80, "icon": "node-js", "detail": "Express.js, REST APIs, Authentication"},
-                    {"name": "MongoDB", "level": 75, "icon": "mongodb", "detail": "Mongoose, Aggregation, Indexing"},
-                    {"name": "MySQL", "level": 70, "icon": "mysql", "detail": "Database design, Queries, Optimization"},
-                    {"name": "Firebase", "level": 75, "icon": "firebase", "detail": "Firestore, Authentication, Hosting"}
-                ]
-            },
-            {
-                "category": "DevOps & Tools",
-                "skills": [
-                    {"name": "Git & GitHub", "level": 90, "icon": "git", "detail": "Version control, Branching, Pull requests"},
-                    {"name": "Docker", "level": 70, "icon": "docker", "detail": "Containerization, Docker Compose"},
-                    {"name": "AWS Basics", "level": 65, "icon": "aws", "detail": "EC2, S3, Lambda functions"},
-                    {"name": "CI/CD", "level": 70, "icon": "ci-cd", "detail": "GitHub Actions, Automated deployment"}
-                ]
-            }
-        ],
-        "soft_skills": [
-            {
-                "name": "Giao tiếp", 
-                "level": 90, 
-                "description": "Truyền đạt ý tưởng hiệu quả", 
-                "icon": "people",
-                "detail": "Kỹ năng trình bày, thuyết phục, và làm việc với khách hàng"
-            },
-            {
-                "name": "Làm việc nhóm", 
-                "level": 88, 
-                "description": "Hợp tác và phối hợp", 
-                "icon": "shuffle",
-                "detail": "Teamwork, Agile methodology, Pair programming"
-            },
-            {
-                "name": "Giải quyết vấn đề", 
-                "level": 92, 
-                "description": "Phân tích và xử lý", 
-                "icon": "lightbulb",
-                "detail": "Analytical thinking, Debugging, Creative solutions"
-            },
-            {
-                "name": "Quản lý thời gian", 
-                "level": 85, 
-                "description": "Tối ưu hiệu suất", 
-                "icon": "clock",
-                "detail": "Prioritization, Meeting deadlines, Productivity"
-            },
-            {
-                "name": "Học hỏi nhanh", 
-                "level": 95, 
-                "description": "Thích ứng công nghệ mới", 
-                "icon": "book",
-                "detail": "Self-learning, Research skills, Adaptability"
-            }
-        ]
+    {
+      "id": 2,
+      "full_name": "Nguyễn Văn A",
+      "email": "user1@example.com",
+      "password": "user123",
+      "role": "user",
+      "joined_date": "2024-02-15",
+      "avatar": null,
+      "status": "active",
+      "bio": "Frontend Developer",
+      "phone": "0987654321",
+      "location": "Hà Nội"
     },
-    
-    "projects": [
-        {
-            "id": 1,
-            "name": "E-Commerce Website",
-            "description": "Website thương mại điện tử đầy đủ tính năng bán điện thoại và phụ kiện",
-            "image": "/img/pj1.jpg",
-            "technologies": ["Vue 3", "Bootstrap 5", "Node.js", "MongoDB", "JWT"],
-            "team_size": "1 Developer",
-            "duration": "3 tháng",
-            "start_date": "2024-01",
-            "end_date": "2024-03",
-            "status": "Hoàn thành",
-            "role": "Full-stack Developer",
-            "github_link": "https://github.com/tuananhdev/ecommerce-phone",
-            "demo_link": "https://phoneshop.tuananhdev.me",
-            "badge_year": "2024",
-            "detail": "Xây dựng hệ thống thương mại điện tử với đầy đủ tính năng: đăng ký/đăng nhập, giỏ hàng, thanh toán, quản lý sản phẩm, đánh giá, và dashboard quản trị.",
-            "features": [
-                "Đăng ký/Đăng nhập với JWT",
-                "Giỏ hàng và thanh toán",
-                "Tìm kiếm và lọc sản phẩm",
-                "Đánh giá và bình luận",
-                "Dashboard quản trị",
-                "Responsive design"
-            ],
-            "challenges": "Xử lý bảo mật thanh toán, tối ưu hiệu suất với nhiều sản phẩm, implement real-time notifications.",
-            "results": "Website hoạt động ổn định với 500+ người dùng, thời gian tải trang dưới 2s, tỉ lệ chuyển đổi 3.5%."
-        },
-        {
-            "id": 2,
-            "name": "Personal Portfolio",
-            "description": "Website giới thiệu bản thân với thiết kế hiện đại và tương tác",
-            "image": "/img/pj2.jpg",
-            "technologies": ["Vue 3", "Bootstrap 5", "Vite", "Chart.js"],
-            "team_size": "1 Developer",
-            "duration": "2 tuần",
-            "start_date": "2024-09",
-            "end_date": "2024-09",
-            "status": "Hoàn thành",
-            "role": "Frontend Developer",
-            "github_link": "https://github.com/tuananhdev/portfolio-vue",
-            "demo_link": "https://portfolio.tuananhdev.me",
-            "badge_year": "2024",
-            "detail": "Portfolio cá nhân với animation mượt mà, dark/light mode, và hiển thị responsive trên mọi thiết bị.",
-            "features": [
-                "Dark/Light mode toggle",
-                "Smooth animations",
-                "Interactive charts",
-                "Contact form",
-                "Blog system",
-                "SEO optimized"
-            ],
-            "challenges": "Tối ưu hiệu suất animation, đảm bảo SEO tốt cho SPA, responsive trên nhiều kích thước màn hình.",
-            "results": "Performance score 95+ trên Lighthouse, load time dưới 1.5s, hoàn toàn responsive."
-        },
-        {
-            "id": 3,
-            "name": "Task Management System",
-            "description": "Hệ thống quản lý công việc với real-time updates",
-            "image": "/img/pj3.jpg",
-            "technologies": ["React", "Node.js", "Socket.io", "MongoDB", "Redux"],
-            "team_size": "1 Developer",
-            "duration": "4 tháng",
-            "start_date": "2024-02",
-            "end_date": "2024-05",
-            "status": "Hoàn thành",
-            "role": "Full-stack Developer",
-            "github_link": "https://github.com/tuananhdev/task-management",
-            "demo_link": "https://tasks.tuananhdev.me",
-            "badge_year": "2024",
-            "detail": "Ứng dụng quản lý công việc với real-time collaboration, drag & drop, và notification system.",
-            "features": [
-                "Real-time collaboration",
-                "Drag & drop interface",
-                "Team management",
-                "Progress tracking",
-                "File attachments",
-                "Email notifications"
-            ],
-            "challenges": "Implement real-time sync, handle concurrency issues, optimize database queries cho large datasets.",
-            "results": "Hỗ trợ 50+ users đồng thời, response time dưới 100ms, 99.9% uptime."
-        },
-        {
-            "id": 4,
-            "name": "Analytics Dashboard",
-            "description": "Bảng điều khiển phân tích dữ liệu với visualizations",
-            "image": "/img/pj4.jpg",
-            "technologies": ["React", "D3.js", "Firebase", "Chart.js", "Material-UI"],
-            "team_size": "1 Developer",
-            "duration": "2 tháng",
-            "start_date": "2024-06",
-            "end_date": "2024-07",
-            "status": "Hoàn thành",
-            "role": "Frontend Developer",
-            "github_link": "https://github.com/tuananhdev/analytics-dashboard",
-            "demo_link": "https://analytics.tuananhdev.me",
-            "badge_year": "2024",
-            "detail": "Dashboard hiển thị dữ liệu với interactive charts, real-time updates, và export capabilities.",
-            "features": [
-                "Interactive data visualization",
-                "Real-time updates",
-                "Export to PDF/Excel",
-                "Customizable widgets",
-                "User activity tracking",
-                "Mobile responsive"
-            ],
-            "challenges": "Xử lý large datasets với hiệu suất cao, implement complex charts, real-time data streaming.",
-            "results": "Xử lý 10,000+ data points mượt mà, render charts trong 200ms, mobile-friendly."
-        }
-    ],
-    
-    "blog_posts": [
-        {
-            "id": 1,
-            "title": "Master Vue Router: Complete Guide",
-            "excerpt": "Hướng dẫn toàn diện về Vue Router từ cơ bản đến nâng cao với Navigation Guards và lazy loading.",
-            "content": "<h2>Giới thiệu Vue Router</h2><p>Vue Router là thư viện routing chính thức cho Vue.js. Nó cho phép bạn xây dựng Single Page Applications (SPA) với nhiều views và routing phức tạp.</p><h3>Cài đặt và Cấu hình</h3><p>Để bắt đầu, cài đặt Vue Router qua npm...</p>",
-            "full_content": "<h1>Master Vue Router: Complete Guide</h1><p>Vue Router là thư viện routing chính thức cho Vue.js, cho phép bạn xây dựng Single Page Applications (SPA) với routing phức tạp.</p><h2>1. Cài đặt</h2><pre><code>npm install vue-router@4</code></pre><h2>2. Cấu hình cơ bản</h2><pre><code>import { createRouter, createWebHistory } from 'vue-router'</code></pre><h2>3. Navigation Guards</h2><p>Navigation Guards cho phép kiểm soát navigation...</p>",
-            "category": "Vue.js",
-            "tags": ["Vue.js", "Router", "SPA", "Navigation", "Vue 3"],
-            "author": "Tuấn Anh",
-            "author_avatar": "/img/1.png",
-            "published_date": "2024-10-10",
-            "time_ago": "2 ngày trước",
-            "read_time": "15 phút",
-            "views": 1200,
-            "likes": 89,
-            "comments_count": 12,
-            "featured_image": "/img/blog1.jpg",
-            "badge_color": "primary",
-            "related_posts": [2, 5]
-        },
-        {
-            "id": 2,
-            "title": "Bootstrap 5 Responsive Design Masterclass",
-            "excerpt": "Tất tần tật về responsive design với Bootstrap 5: Grid system, utilities, và best practices.",
-            "content": "<h2>Bootstrap 5 Grid System</h2><p>Grid system của Bootstrap 5 mạnh mẽ và linh hoạt...</p>",
-            "full_content": "<h1>Bootstrap 5 Responsive Design Masterclass</h1><p>Bootstrap 5 mang đến nhiều cải tiến cho responsive design.</p><h2>1. Grid System</h2><p>Hệ thống lưới 12 cột responsive...</p><h2>2. Utility Classes</h2><p>Các utility classes cho spacing, typography, colors...</p>",
-            "category": "Bootstrap",
-            "tags": ["Bootstrap", "Responsive", "CSS", "Web Design", "Mobile First"],
-            "author": "Tuấn Anh",
-            "author_avatar": "/img/1.png",
-            "published_date": "2024-10-03",
-            "time_ago": "1 tuần trước",
-            "read_time": "10 phút",
-            "views": 856,
-            "likes": 45,
-            "comments_count": 8,
-            "featured_image": "/img/blog2.jpg",
-            "badge_color": "success",
-            "related_posts": [1, 4]
-        },
-        {
-            "id": 3,
-            "title": "Modern JavaScript ES6+ Features You Must Know",
-            "excerpt": "Tổng hợp các tính năng ES6+ quan trọng giúp code JavaScript clean và hiệu quả hơn.",
-            "content": "<h2>Arrow Functions</h2><p>Arrow functions cung cấp cú pháp ngắn gọn hơn...</p>",
-            "full_content": "<h1>Modern JavaScript ES6+ Features</h1><p>ES6+ đã thay đổi cách chúng ta viết JavaScript.</p><h2>1. Arrow Functions</h2><pre><code>const add = (a, b) => a + b;</code></pre><h2>2. Template Literals</h2><pre><code>const name = `Hello ${userName}`;</code></pre>",
-            "category": "JavaScript",
-            "tags": ["JavaScript", "ES6", "Modern JS", "Syntax", "Best Practices"],
-            "author": "Tuấn Anh",
-            "author_avatar": "/img/1.png",
-            "published_date": "2024-09-26",
-            "time_ago": "2 tuần trước",
-            "read_time": "20 phút",
-            "views": 1500,
-            "likes": 102,
-            "comments_count": 15,
-            "featured_image": "/img/blog3.jpg",
-            "badge_color": "warning",
-            "related_posts": [1, 4]
-        },
-        {
-            "id": 4,
-            "title": "Advanced CSS Techniques for Modern Web",
-            "excerpt": "Khám phá các kỹ thuật CSS nâng cao như Grid, Flexbox, CSS Variables và animations.",
-            "content": "<h2>CSS Grid vs Flexbox</h2><p>Khi nào nên dùng Grid, khi nào nên dùng Flexbox...</p>",
-            "full_content": "<h1>Advanced CSS Techniques</h1><p>CSS hiện đại cung cấp nhiều tính năng mạnh mẽ.</p><h2>1. CSS Grid</h2><pre><code>.container { display: grid; grid-template-columns: repeat(3, 1fr); }</code></pre><h2>2. CSS Variables</h2><pre><code>:root { --primary-color: #667eea; }</code></pre>",
-            "category": "CSS3",
-            "tags": ["CSS", "Grid", "Flexbox", "Animations", "Responsive"],
-            "author": "Tuấn Anh",
-            "author_avatar": "/img/1.png",
-            "published_date": "2024-09-19",
-            "time_ago": "3 tuần trước",
-            "read_time": "25 phút",
-            "views": 2100,
-            "likes": 134,
-            "comments_count": 22,
-            "featured_image": "/img/blog4.jpg",
-            "badge_color": "info",
-            "related_posts": [2, 6]
-        },
-        {
-            "id": 5,
-            "title": "Vue 3 Composition API: Complete Tutorial",
-            "excerpt": "Hướng dẫn sử dụng Composition API trong Vue 3 với các ví dụ thực tế.",
-            "content": "<h2>Setup Function</h2><p>Composition API bắt đầu với setup function...</p>",
-            "full_content": "<h1>Vue 3 Composition API Tutorial</h1><p>Composition API mang đến cách tiếp cận mới cho Vue 3.</p><h2>1. Setup Function</h2><pre><code>setup() { const count = ref(0); return { count } }</code></pre>",
-            "category": "Vue.js",
-            "tags": ["Vue 3", "Composition API", "Vue.js", "Frontend"],
-            "author": "Tuấn Anh",
-            "author_avatar": "/img/1.png",
-            "published_date": "2024-10-08",
-            "time_ago": "4 ngày trước",
-            "read_time": "12 phút",
-            "views": 980,
-            "likes": 67,
-            "comments_count": 9,
-            "featured_image": "/img/blog5.jpg",
-            "badge_color": "primary",
-            "related_posts": [1, 3]
-        },
-        {
-            "id": 6,
-            "title": "UI/UX Best Practices for Web Developers",
-            "excerpt": "Các nguyên tắc thiết kế UI/UX quan trọng mà mọi web developer nên biết.",
-            "content": "<h2>User-Centered Design</h2><p>Thiết kế tập trung vào người dùng...</p>",
-            "full_content": "<h1>UI/UX Best Practices</h1><p>UI/UX tốt là chìa khóa thành công của mọi website.</p><h2>1. User Research</h2><p>Hiểu người dùng của bạn...</p><h2>2. Usability Testing</h2><p>Test với người dùng thật...</p>",
-            "category": "UI/UX",
-            "tags": ["UI Design", "UX", "Web Design", "Usability", "User Experience"],
-            "author": "Tuấn Anh",
-            "author_avatar": "/img/1.png",
-            "published_date": "2024-09-30",
-            "time_ago": "1 tuần trước",
-            "read_time": "18 phút",
-            "views": 1120,
-            "likes": 78,
-            "comments_count": 14,
-            "featured_image": "/img/blog6.jpg",
-            "badge_color": "success",
-            "related_posts": [2, 4]
-        }
-    ],
-    
-    "gallery": [
-        {
-            "id": 1,
-            "title": "Professional Headshot",
-            "description": "Ảnh chân dung chuyên nghiệp",
-            "image_url": "/img/dt1.jpg",
-            "category": "personal",
-            "date_uploaded": "2024-10-01",
-            "detail": "Ảnh chụp chân dung chuyên nghiệp tại studio, sử dụng cho hồ sơ cá nhân và portfolio."
-        },
-        {
-            "id": 2,
-            "title": "Workstation Setup",
-            "description": "Không gian làm việc tại nhà",
-            "image_url": "/img/dt2.jpg",
-            "category": "work",
-            "date_uploaded": "2024-09-15",
-            "detail": "Setup workstation với dual monitors, mechanical keyboard, và ergonomic chair."
-        },
-        {
-            "id": 3,
-            "title": "Coding Session",
-            "description": "Lập trình dự án Vue.js",
-            "image_url": "/img/dt3.jpg",
-            "category": "work",
-            "date_uploaded": "2024-08-20",
-            "detail": "Làm việc trên dự án Vue.js với VS Code và developer tools."
-        },
-        {
-            "id": 4,
-            "title": "Certification Achievement",
-            "description": "Chứng chỉ hoàn thành khóa học",
-            "image_url": "/img/dt4.jpg",
-            "category": "achievements",
-            "date_uploaded": "2024-07-10",
-            "detail": "Chứng chỉ Vue.js Masterclass từ Udemy với điểm số xuất sắc."
-        },
-        {
-            "id": 5,
-            "title": "Team Collaboration",
-            "description": "Làm việc nhóm dự án",
-            "image_url": "/img/dt5.jpg",
-            "category": "work",
-            "date_uploaded": "2024-06-05",
-            "detail": "Pair programming session với team member trên dự án React."
-        },
-        {
-            "id": 6,
-            "title": "Conference Speaking",
-            "description": "Thuyết trình tại hội nghị",
-            "image_url": "/img/dt6.jpg",
-            "category": "achievements",
-            "date_uploaded": "2024-05-12",
-            "detail": "Thuyết trình về Vue.js tại Tech Conference 2024."
-        }
-    ],
-    
-    "services": [
-        {
-            "id": 1,
-            "title": "Thiết Kế Website",
-            "description": "Thiết kế website chuyên nghiệp, responsive và SEO-friendly",
-            "icon": "laptop",
-            "features": [
-                "UI/UX Design tối ưu",
-                "Responsive trên mọi thiết bị",
-                "SEO-friendly structure",
-                "Fast loading speed",
-                "Cross-browser compatibility"
-            ],
-            "color": "primary",
-            "price": "Liên hệ",
-            "duration": "2-4 tuần",
-            "detail": "Thiết kế website từ concept đến deployment với focus trên user experience và performance. Sử dụng công nghệ hiện đại như Vue.js, React, và Bootstrap 5."
-        },
-        {
-            "id": 2,
-            "title": "Phát Triển Ứng Dụng Web",
-            "description": "Phát triển ứng dụng web full-stack hiện đại",
-            "icon": "code-slash",
-            "features": [
-                "Single Page Applications",
-                "RESTful API Development",
-                "Real-time features",
-                "Database design",
-                "Authentication & Authorization"
-            ],
-            "color": "success",
-            "price": "Liên hệ",
-            "duration": "1-3 tháng",
-            "detail": "Phát triển ứng dụng web full-stack với Node.js, Express, MongoDB hoặc MySQL. Tập trung vào scalability, security, và maintainability."
-        },
-        {
-            "id": 3,
-            "title": "Tư Vấn Công Nghệ",
-            "description": "Tư vấn giải pháp công nghệ tối ưu cho doanh nghiệp",
-            "icon": "graph-up",
-            "features": [
-                "Kiến trúc hệ thống",
-                "Lựa chọn công nghệ phù hợp",
-                "Bảo mật & Scalability",
-                "Performance optimization",
-                "Code review & Best practices"
-            ],
-            "color": "warning",
-            "price": "Liên hệ",
-            "duration": "Tùy dự án",
-            "detail": "Tư vấn công nghệ, kiến trúc hệ thống, và giải pháp kỹ thuật. Đánh giá hiện trạng và đề xuất cải tiến."
-        },
-        {
-            "id": 4,
-            "title": "Maintenance & Support",
-            "description": "Bảo trì và hỗ trợ website/ứng dụng",
-            "icon": "tools",
-            "features": [
-                "Regular updates",
-                "Security patches",
-                "Bug fixes",
-                "Performance monitoring",
-                "Technical support"
-            ],
-            "color": "info",
-            "price": "Theo gói",
-            "duration": "Hàng tháng",
-            "detail": "Dịch vụ bảo trì và hỗ trợ liên tục cho website và ứng dụng. Đảm bảo hệ thống luôn hoạt động ổn định và bảo mật."
-        }
-    ],
-    
-    "statistics": {
-        "projects": 25,
-        "experience": 3,
-        "clients": 15,
-        "completion_rate": 99,
-        "happy_clients": 14,
-        "working_hours": 2000,
-        "code_commits": 1500,
-        "coffee_cups": 500
+    {
+      "id": 3,
+      "full_name": "Trần Thị B",
+      "email": "user2@example.com",
+      "password": "user123",
+      "role": "user",
+      "joined_date": "2024-03-20",
+      "avatar": null,
+      "status": "active",
+      "bio": "UI/UX Designer",
+      "phone": "0961234567",
+      "location": "TP.HCM"
     },
-    
-    "contact_info": {
-        "email": "huynhtuananh.dev@gmail.com",
-        "phone": "+84 972 147 819",
-        "address": "Tuyên Quang, Việt Nam",
-        "working_hours": "Thứ 2 - Thứ 6: 8:00 - 18:00",
-        "emergency_contact": "Có sẵn 24/7 cho dự án urgent",
-        "social_links": {
-            "facebook": "https://facebook.com/tuananhdev",
-            "github": "https://github.com/tuananhdev",
-            "linkedin": "https://linkedin.com/in/tuananhdev",
-            "twitter": "https://twitter.com/tuananhdev",
-            "instagram": "https://instagram.com/tuananh.dev"
-        }
+    {
+      "id": 1765045255635,
+      "full_name": "112",
+      "fullName": "112",
+      "email": "112admin@example.com",
+      "password": "123456",
+      "role": "user",
+      "joined_date": "2025-12-06",
+      "status": "active",
+      "avatar": null,
+      "bio": "Người dùng mới",
+      "created_at": "2025-12-06T18:20:55.636Z"
     },
-    
-    "testimonials": [
-        {
-            "id": 1,
-            "name": "Nguyễn Văn Khách",
-            "position": "CEO, TechStartup",
-            "content": "Tuấn Anh đã xây dựng website tuyệt vời cho công ty chúng tôi. Anh ấy rất chuyên nghiệp và tận tâm.",
-            "avatar": null,
-            "rating": 5,
-            "date": "2024-09-15"
-        },
-        {
-            "id": 2,
-            "name": "Trần Thị Khách",
-            "position": "Marketing Manager",
-            "content": "Dịch vụ thiết kế UI/UX xuất sắc. Tỉ lệ chuyển đổi tăng 30% sau khi launch website mới.",
-            "avatar": null,
-            "rating": 5,
-            "date": "2024-08-22"
-        }
-    ],
-    "contacts": [],
-    
-    "site_config": {
-        "title": "Portfolio - HUỲNH TUẤN ANH",
-        "description": "Portfolio cá nhân của Huỳnh Tuấn Anh - Full-Stack Web Developer chuyên nghiệp",
-        "author": "Huỳnh Tuấn Anh",
-        "theme_color": "#667eea",
-        "current_year": 2025,
-        "version": "2.0.0",
-        "last_updated": "2024-10-15"
+    {
+      "id": 1765119192051,
+      "full_name": "áaaaaa",
+      "email": "aaaaadmin@example.com",
+      "password": "123456",
+      "role": "user",
+      "joined_date": "2025-12-07",
+      "status": "active"
+    },
+    {
+      "id": 1765194807274,
+      "full_name": "aaa",
+      "email": "anhtienong@gmail.com",
+      "password": "123456",
+      "role": "user",
+      "joined_date": "2025-12-08",
+      "status": "active"
+    },
+    {
+      "id": 1765195021227,
+      "full_name": "hosting",
+      "email": "anhtienong1111@gmail.com",
+      "password": "sieuha123",
+      "role": "user",
+      "joined_date": "2025-12-08",
+      "status": "active"
+    },
+    {
+      "id": 1765372822584,
+      "full_name": "emailtest",
+      "email": "lilwuyn2006@gmail.com",
+      "password": "sieuha123",
+      "role": "user",
+      "joined_date": "2025-12-10",
+      "status": "active"
+    },
+    {
+      "id": 1765374404770,
+      "full_name": "Rong Hai",
+      "email": "aaanhtienong@gmail.com",
+      "password": "",
+      "role": "user",
+      "joined_date": "2025-12-10",
+      "status": "active",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocIiwIXSVcnHabS8yvvhRH0jwO9GuGThLyAFYlG9L_OjlU95DA=s96-c",
+      "login_type": "google",
+      "google_id": "116471976813895292068"
     }
-    
+  ],
+  "education": [
+    {
+      "id": 1,
+      "institution": "Cao Đẳng FPT Polytechnic",
+      "degree": "Cao đẳng Thực hành",
+      "major": "Ứng dụng Phần mềm",
+      "period": "2023 - 2025",
+      "description": "Chuyên ngành Phát triển Web và Ứng dụng di động",
+      "detail": "Theo học chuyên sâu về phát triển web với các môn học như: Lập trình Frontend với HTML/CSS/JavaScript, Framework Vue.js và React, Thiết kế UI/UX, Phát triển Backend với Node.js, Quản trị cơ sở dữ liệu, và DevOps.",
+      "gpa": "3.8/4.0",
+      "achievements": [
+        "Điểm trung bình: 3.8/4.0",
+        "Tham gia cuộc thi Lập trình sinh viên 2024",
+        "Dự án tốt nghiệp xuất sắc"
+      ],
+      "image": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+      "id": 2,
+      "institution": "Tự Học & Online Courses",
+      "degree": "Các khóa học trực tuyến",
+      "major": "Lập trình Web",
+      "period": "2020 - Nay",
+      "description": "Vue.js, React, Node.js, REST API, UI/UX, Git, DevOps",
+      "detail": "Tự học qua các nền tảng online như Udemy, Coursera, FreeCodeCamp. Hoàn thành hơn 20 khóa học về phát triển web full-stack.",
+      "certifications": [
+        "Vue.js Masterclass",
+        "React Developer Certificate",
+        "Node.js Backend Development",
+        "AWS Cloud Practitioner"
+      ],
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    }
+  ],
+  "work_experience": [
+    {
+      "id": 1,
+      "position": "Frontend Developer",
+      "company": "Freelance",
+      "location": "Remote",
+      "period": "2023 - Nay",
+      "description": "Làm việc freelance và phát triển giao diện website cho khách hàng cá nhân/doanh nghiệp.",
+      "detail": "Phát triển website responsive, tối ưu SEO, và đảm bảo trải nghiệm người dùng tốt nhất. Hợp tác với 15+ khách hàng từ startup đến doanh nghiệp vừa và nhỏ.",
+      "responsibilities": [
+        "Xây dựng website bằng Vue 3, React, Bootstrap, Tailwind",
+        "Thiết kế UI/UX tối ưu trải nghiệm người dùng",
+        "Responsive chuẩn mobile & SEO-friendly",
+        "Tối ưu hiệu suất và tốc độ tải trang"
+      ],
+      "technologies": [
+        "Vue.js",
+        "React",
+        "Bootstrap",
+        "Tailwind",
+        "JavaScript",
+        "TypeScript"
+      ],
+      "achievements": [
+        "Nâng cao hiệu suất website 40%",
+        "Tăng tỉ lệ chuyển đổi 25%",
+        "Nhận phản hồi 5 sao từ 12 khách hàng"
+      ],
+      "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+      "id": 2,
+      "position": "Full-stack Developer",
+      "company": "Dự án cá nhân",
+      "location": "Tuyên Quang",
+      "period": "2022 - 2023",
+      "description": "Tự phát triển các dự án cá nhân, ứng dụng web hoàn chỉnh.",
+      "detail": "Xây dựng và triển khai các dự án full-stack từ concept đến production. Học và ứng dụng các công nghệ mới nhất trong thực tế.",
+      "responsibilities": [
+        "Xây dựng backend với Node.js, Express, MongoDB",
+        "RESTful API, bảo mật JWT, phân quyền người dùng",
+        "Deploy trên Render, Vercel, Netlify, Firebase",
+        "Thiết kế database và optimize queries"
+      ],
+      "technologies": [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT",
+        "REST API",
+        "Docker",
+        "AWS"
+      ],
+      "achievements": [
+        "Phát triển 8 dự án full-stack hoàn chỉnh",
+        "Tự học và ứng dụng Docker, CI/CD",
+        "Đạt 1000+ người dùng trên các dự án"
+      ],
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+    }
+  ],
+  "skills": {
+    "technical": [
+      {
+        "category": "Frontend",
+        "skills": [
+          {
+            "name": "Vue.js & Vue 3",
+            "level": 95,
+            "icon": "vuejs",
+            "detail": "Thành thạo Composition API, Vue Router, Pinia, Vuex"
+          },
+          {
+            "name": "React.js",
+            "level": 85,
+            "icon": "react",
+            "detail": "Hooks, Context API, Redux, Next.js"
+          },
+          {
+            "name": "JavaScript/ES6+",
+            "level": 90,
+            "icon": "js",
+            "detail": "Modern JavaScript, Async/Await, Promises"
+          },
+          {
+            "name": "HTML5/CSS3",
+            "level": 95,
+            "icon": "html5",
+            "detail": "Semantic HTML, CSS Grid, Flexbox, Animations"
+          },
+          {
+            "name": "Bootstrap 5",
+            "level": 90,
+            "icon": "bootstrap",
+            "detail": "Responsive design, Components, Utilities"
+          },
+          {
+            "name": "Tailwind CSS",
+            "level": 85,
+            "icon": "tailwind",
+            "detail": "Utility-first, Custom configurations"
+          }
+        ]
+      },
+      {
+        "category": "Backend",
+        "skills": [
+          {
+            "name": "Node.js",
+            "level": 80,
+            "icon": "node-js",
+            "detail": "Express.js, REST APIs, Authentication"
+          },
+          {
+            "name": "MongoDB",
+            "level": 75,
+            "icon": "mongodb",
+            "detail": "Mongoose, Aggregation, Indexing"
+          },
+          {
+            "name": "MySQL",
+            "level": 70,
+            "icon": "mysql",
+            "detail": "Database design, Queries, Optimization"
+          },
+          {
+            "name": "Firebase",
+            "level": 75,
+            "icon": "firebase",
+            "detail": "Firestore, Authentication, Hosting"
+          }
+        ]
+      },
+      {
+        "category": "DevOps & Tools",
+        "skills": [
+          {
+            "name": "Git & GitHub",
+            "level": 90,
+            "icon": "git",
+            "detail": "Version control, Branching, Pull requests"
+          },
+          {
+            "name": "Docker",
+            "level": 70,
+            "icon": "docker",
+            "detail": "Containerization, Docker Compose"
+          },
+          {
+            "name": "AWS Basics",
+            "level": 65,
+            "icon": "aws",
+            "detail": "EC2, S3, Lambda functions"
+          },
+          {
+            "name": "CI/CD",
+            "level": 70,
+            "icon": "ci-cd",
+            "detail": "GitHub Actions, Automated deployment"
+          }
+        ]
+      }
+    ],
+    "soft_skills": [
+      {
+        "name": "Giao tiếp",
+        "level": 90,
+        "description": "Truyền đạt ý tưởng hiệu quả",
+        "icon": "people",
+        "detail": "Kỹ năng trình bày, thuyết phục, và làm việc với khách hàng"
+      },
+      {
+        "name": "Làm việc nhóm",
+        "level": 88,
+        "description": "Hợp tác và phối hợp",
+        "icon": "shuffle",
+        "detail": "Teamwork, Agile methodology, Pair programming"
+      },
+      {
+        "name": "Giải quyết vấn đề",
+        "level": 92,
+        "description": "Phân tích và xử lý",
+        "icon": "lightbulb",
+        "detail": "Analytical thinking, Debugging, Creative solutions"
+      },
+      {
+        "name": "Quản lý thời gian",
+        "level": 85,
+        "description": "Tối ưu hiệu suất",
+        "icon": "clock",
+        "detail": "Prioritization, Meeting deadlines, Productivity"
+      },
+      {
+        "name": "Học hỏi nhanh",
+        "level": 95,
+        "description": "Thích ứng công nghệ mới",
+        "icon": "book",
+        "detail": "Self-learning, Research skills, Adaptability"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "id": 1,
+      "name": "E-Commerce Website",
+      "description": "Website thương mại điện tử đầy đủ tính năng bán điện thoại và phụ kiện",
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "technologies": [
+        "Vue 3",
+        "Bootstrap 5",
+        "Node.js",
+        "MongoDB",
+        "JWT"
+      ],
+      "team_size": "1 Developer",
+      "duration": "3 tháng",
+      "start_date": "2024-01",
+      "end_date": "2024-03",
+      "status": "Hoàn thành",
+      "role": "Full-stack Developer",
+      "github_link": "https://github.com/tuananhdev/ecommerce-phone",
+      "demo_link": "https://phoneshop.tuananhdev.me",
+      "badge_year": "2024",
+      "detail": "Xây dựng hệ thống thương mại điện tử với đầy đủ tính năng: đăng ký/đăng nhập, giỏ hàng, thanh toán, quản lý sản phẩm, đánh giá, và dashboard quản trị.",
+      "features": [
+        "Đăng ký/Đăng nhập với JWT",
+        "Giỏ hàng và thanh toán",
+        "Tìm kiếm và lọc sản phẩm",
+        "Đánh giá và bình luận",
+        "Dashboard quản trị",
+        "Responsive design"
+      ],
+      "challenges": "Xử lý bảo mật thanh toán, tối ưu hiệu suất với nhiều sản phẩm, implement real-time notifications.",
+      "results": "Website hoạt động ổn định với 500+ người dùng, thời gian tải trang dưới 2s, tỉ lệ chuyển đổi 3.5%."
+    },
+    {
+      "id": 2,
+      "name": "Personal Portfolio",
+      "description": "Website giới thiệu bản thân với thiết kế hiện đại và tương tác",
+      "image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "technologies": [
+        "Vue 3",
+        "Bootstrap 5",
+        "Vite",
+        "Chart.js"
+      ],
+      "team_size": "1 Developer",
+      "duration": "2 tuần",
+      "start_date": "2024-09",
+      "end_date": "2024-09",
+      "status": "Hoàn thành",
+      "role": "Frontend Developer",
+      "github_link": "https://github.com/tuananhdev/portfolio-vue",
+      "demo_link": "https://portfolio.tuananhdev.me",
+      "badge_year": "2024",
+      "detail": "Portfolio cá nhân với animation mượt mà, dark/light mode, và hiển thị responsive trên mọi thiết bị.",
+      "features": [
+        "Dark/Light mode toggle",
+        "Smooth animations",
+        "Interactive charts",
+        "Contact form",
+        "Blog system",
+        "SEO optimized"
+      ],
+      "challenges": "Tối ưu hiệu suất animation, đảm bảo SEO tốt cho SPA, responsive trên nhiều kích thước màn hình.",
+      "results": "Performance score 95+ trên Lighthouse, load time dưới 1.5s, hoàn toàn responsive."
+    },
+    {
+      "id": 3,
+      "name": "Task Management System",
+      "description": "Hệ thống quản lý công việc với real-time updates",
+      "image": "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "technologies": [
+        "React",
+        "Node.js",
+        "Socket.io",
+        "MongoDB",
+        "Redux"
+      ],
+      "team_size": "1 Developer",
+      "duration": "4 tháng",
+      "start_date": "2024-02",
+      "end_date": "2024-05",
+      "status": "Hoàn thành",
+      "role": "Full-stack Developer",
+      "github_link": "https://github.com/tuananhdev/task-management",
+      "demo_link": "https://tasks.tuananhdev.me",
+      "badge_year": "2024",
+      "detail": "Ứng dụng quản lý công việc với real-time collaboration, drag & drop, và notification system.",
+      "features": [
+        "Real-time collaboration",
+        "Drag & drop interface",
+        "Team management",
+        "Progress tracking",
+        "File attachments",
+        "Email notifications"
+      ],
+      "challenges": "Implement real-time sync, handle concurrency issues, optimize database queries cho large datasets.",
+      "results": "Hỗ trợ 50+ users đồng thời, response time dưới 100ms, 99.9% uptime."
+    },
+    {
+      "id": 4,
+      "name": "Analytics Dashboard",
+      "description": "Bảng điều khiển phân tích dữ liệu với visualizations",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "technologies": [
+        "React",
+        "D3.js",
+        "Firebase",
+        "Chart.js",
+        "Material-UI"
+      ],
+      "team_size": "1 Developer",
+      "duration": "2 tháng",
+      "start_date": "2024-06",
+      "end_date": "2024-07",
+      "status": "Hoàn thành",
+      "role": "Frontend Developer",
+      "github_link": "https://github.com/tuananhdev/analytics-dashboard",
+      "demo_link": "https://analytics.tuananhdev.me",
+      "badge_year": "2024",
+      "detail": "Dashboard hiển thị dữ liệu với interactive charts, real-time updates, và export capabilities.",
+      "features": [
+        "Interactive data visualization",
+        "Real-time updates",
+        "Export to PDF/Excel",
+        "Customizable widgets",
+        "User activity tracking",
+        "Mobile responsive"
+      ],
+      "challenges": "Xử lý large datasets với hiệu suất cao, implement complex charts, real-time data streaming.",
+      "results": "Xử lý 10,000+ data points mượt mà, render charts trong 200ms, mobile-friendly."
+    }
+  ],
+  "blog_posts": [
+    {
+      "id": 1,
+      "title": "Master Vue Router: Complete Guide",
+      "excerpt": "Hướng dẫn toàn diện về Vue Router từ cơ bản đến nâng cao với Navigation Guards và lazy loading.",
+      "content": "<h2>Giới thiệu Vue Router</h2><p>Vue Router là thư viện routing chính thức cho Vue.js. Nó cho phép bạn xây dựng Single Page Applications (SPA) với nhiều views và routing phức tạp.</p><h3>Cài đặt và Cấu hình</h3><p>Để bắt đầu, cài đặt Vue Router qua npm...</p>",
+      "full_content": "<h1>Master Vue Router: Complete Guide</h1><p>Vue Router là thư viện routing chính thức cho Vue.js, cho phép bạn xây dựng Single Page Applications (SPA) với routing phức tạp.</p><h2>1. Cài đặt</h2><pre><code>npm install vue-router@4</code></pre><h2>2. Cấu hình cơ bản</h2><pre><code>import { createRouter, createWebHistory } from 'vue-router'</code></pre><h2>3. Navigation Guards</h2><p>Navigation Guards cho phép kiểm soát navigation...</p>",
+      "category": "Vue.js",
+      "tags": [
+        "Vue.js",
+        "Router",
+        "SPA",
+        "Navigation",
+        "Vue 3"
+      ],
+      "author": "Tuấn Anh",
+      "author_avatar": "/img/add.jpg",
+      "published_date": "2024-10-10",
+      "time_ago": "2 ngày trước",
+      "read_time": "15 phút",
+      "views": 1200,
+      "likes": 89,
+      "comments_count": 12,
+      "featured_image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "badge_color": "primary",
+      "related_posts": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Bootstrap 5 Responsive Design Masterclass",
+      "excerpt": "Tất tần tật về responsive design với Bootstrap 5: Grid system, utilities, và best practices.",
+      "content": "<h2>Bootstrap 5 Grid System</h2><p>Grid system của Bootstrap 5 mạnh mẽ và linh hoạt...</p>",
+      "full_content": "<h1>Bootstrap 5 Responsive Design Masterclass</h1><p>Bootstrap 5 mang đến nhiều cải tiến cho responsive design.</p><h2>1. Grid System</h2><p>Hệ thống lưới 12 cột responsive...</p><h2>2. Utility Classes</h2><p>Các utility classes cho spacing, typography, colors...</p>",
+      "category": "Bootstrap",
+      "tags": [
+        "Bootstrap",
+        "Responsive",
+        "CSS",
+        "Web Design",
+        "Mobile First"
+      ],
+      "author": "Tuấn Anh",
+      "author_avatar": "/img/add.jpg",
+      "published_date": "2024-10-03",
+      "time_ago": "1 tuần trước",
+      "read_time": "10 phút",
+      "views": 856,
+      "likes": 45,
+      "comments_count": 8,
+      "featured_image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "badge_color": "success",
+      "related_posts": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Modern JavaScript ES6+ Features You Must Know",
+      "excerpt": "Tổng hợp các tính năng ES6+ quan trọng giúp code JavaScript clean và hiệu quả hơn.",
+      "content": "<h2>Arrow Functions</h2><p>Arrow functions cung cấp cú pháp ngắn gọn hơn...</p>",
+      "full_content": "<h1>Modern JavaScript ES6+ Features</h1><p>ES6+ đã thay đổi cách chúng ta viết JavaScript.</p><h2>1. Arrow Functions</h2><pre><code>const add = (a, b) => a + b;</code></pre><h2>2. Template Literals</h2><pre><code>const name = `Hello ${userName}`;</code></pre>",
+      "category": "JavaScript",
+      "tags": [
+        "JavaScript",
+        "ES6",
+        "Modern JS",
+        "Syntax",
+        "Best Practices"
+      ],
+      "author": "Tuấn Anh",
+      "author_avatar": "/img/add.jpg",
+      "published_date": "2024-09-26",
+      "time_ago": "2 tuần trước",
+      "read_time": "20 phút",
+      "views": 1500,
+      "likes": 102,
+      "comments_count": 15,
+      "featured_image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "badge_color": "warning",
+      "related_posts": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Advanced CSS Techniques for Modern Web",
+      "excerpt": "Khám phá các kỹ thuật CSS nâng cao như Grid, Flexbox, CSS Variables và animations.",
+      "content": "<h2>CSS Grid vs Flexbox</h2><p>Khi nào nên dùng Grid, khi nào nên dùng Flexbox...</p>",
+      "full_content": "<h1>Advanced CSS Techniques</h1><p>CSS hiện đại cung cấp nhiều tính năng mạnh mẽ.</p><h2>1. CSS Grid</h2><pre><code>.container { display: grid; grid-template-columns: repeat(3, 1fr); }</code></pre><h2>2. CSS Variables</h2><pre><code>:root { --primary-color: #667eea; }</code></pre>",
+      "category": "CSS3",
+      "tags": [
+        "CSS",
+        "Grid",
+        "Flexbox",
+        "Animations",
+        "Responsive"
+      ],
+      "author": "Tuấn Anh",
+      "author_avatar": "/img/add.jpg",
+      "published_date": "2024-09-19",
+      "time_ago": "3 tuần trước",
+      "read_time": "25 phút",
+      "views": 2100,
+      "likes": 134,
+      "comments_count": 22,
+      "featured_image": "/img/blog1.webp",
+      "badge_color": "info",
+      "related_posts": [
+        2,
+        6
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Vue 3 Composition API: Complete Tutorial",
+      "excerpt": "Hướng dẫn sử dụng Composition API trong Vue 3 với các ví dụ thực tế.",
+      "content": "<h2>Setup Function</h2><p>Composition API bắt đầu với setup function...</p>",
+      "full_content": "<h1>Vue 3 Composition API Tutorial</h1><p>Composition API mang đến cách tiếp cận mới cho Vue 3.</p><h2>1. Setup Function</h2><pre><code>setup() { const count = ref(0); return { count } }</code></pre>",
+      "category": "Vue.js",
+      "tags": [
+        "Vue 3",
+        "Composition API",
+        "Vue.js",
+        "Frontend"
+      ],
+      "author": "Tuấn Anh",
+      "author_avatar": "/img/add.jpg",
+      "published_date": "2024-10-08",
+      "time_ago": "4 ngày trước",
+      "read_time": "12 phút",
+      "views": 980,
+      "likes": 67,
+      "comments_count": 9,
+      "featured_image": "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "badge_color": "primary",
+      "related_posts": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 6,
+      "title": "UI/UX Best Practices for Web Developers",
+      "excerpt": "Các nguyên tắc thiết kế UI/UX quan trọng mà mọi web developer nên biết.",
+      "content": "<h2>User-Centered Design</h2><p>Thiết kế tập trung vào người dùng...</p>",
+      "full_content": "<h1>UI/UX Best Practices</h1><p>UI/UX tốt là chìa khóa thành công của mọi website.</p><h2>1. User Research</h2><p>Hiểu người dùng của bạn...</p><h2>2. Usability Testing</h2><p>Test với người dùng thật...</p>",
+      "category": "UI/UX",
+      "tags": [
+        "UI Design",
+        "UX",
+        "Web Design",
+        "Usability",
+        "User Experience"
+      ],
+      "author": "Tuấn Anh",
+      "author_avatar": "/img/add.jpg",
+      "published_date": "2024-09-30",
+      "time_ago": "1 tuần trước",
+      "read_time": "18 phút",
+      "views": 1120,
+      "likes": 78,
+      "comments_count": 14,
+      "featured_image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "badge_color": "success",
+      "related_posts": [
+        2,
+        4
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "id": 1,
+      "title": "Professional Headshot",
+      "description": "Ảnh chân dung chuyên nghiệp",
+      "image_url": "/img/add.jpg",
+      "category": "personal",
+      "date_uploaded": "2024-10-01",
+      "detail": "Ảnh chụp chân dung chuyên nghiệp tại studio, sử dụng cho hồ sơ cá nhân và portfolio."
+    },
+    {
+      "id": 2,
+      "title": "Workstation Setup",
+      "description": "Không gian làm việc tại nhà",
+      "image_url": "/img/goclamviec.webp",
+      "category": "work",
+      "date_uploaded": "2024-09-15",
+      "detail": "Setup workstation với dual monitors, mechanical keyboard, và ergonomic chair."
+    },
+    {
+      "id": 3,
+      "title": "Coding Session",
+      "description": "Lập trình dự án Vue.js",
+      "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "category": "work",
+      "date_uploaded": "2024-08-20",
+      "detail": "Làm việc trên dự án Vue.js với VS Code và developer tools."
+    },
+    {
+      "id": 4,
+      "title": "Certification Achievement",
+      "description": "Chứng chỉ hoàn thành khóa học",
+      "image_url": "/img/thanhtuu.jpg",
+      "category": "achievements",
+      "date_uploaded": "2024-07-10",
+      "detail": "Chứng chỉ Vue.js Masterclass từ Udemy với điểm số xuất sắc."
+    },
+    {
+      "id": 5,
+      "title": "Team Collaboration",
+      "description": "Làm việc nhóm dự án",
+      "image_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "category": "work",
+      "date_uploaded": "2024-06-05",
+      "detail": "Pair programming session với team member trên dự án React."
+    },
+    {
+      "id": 6,
+      "title": "Conference Speaking",
+      "description": "Thuyết trình tại hội nghị",
+      "image_url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      "category": "achievements",
+      "date_uploaded": "2024-05-12",
+      "detail": "Thuyết trình về Vue.js tại Tech Conference 2024."
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "title": "Thiết Kế Website",
+      "description": "Thiết kế website chuyên nghiệp, responsive và SEO-friendly",
+      "icon": "laptop",
+      "features": [
+        "UI/UX Design tối ưu",
+        "Responsive trên mọi thiết bị",
+        "SEO-friendly structure",
+        "Fast loading speed",
+        "Cross-browser compatibility"
+      ],
+      "color": "primary",
+      "price": "Liên hệ",
+      "duration": "2-4 tuần",
+      "detail": "Thiết kế website từ concept đến deployment với focus trên user experience và performance. Sử dụng công nghệ hiện đại như Vue.js, React, và Bootstrap 5."
+    },
+    {
+      "id": 2,
+      "title": "Phát Triển Ứng Dụng Web",
+      "description": "Phát triển ứng dụng web full-stack hiện đại",
+      "icon": "code-slash",
+      "features": [
+        "Single Page Applications",
+        "RESTful API Development",
+        "Real-time features",
+        "Database design",
+        "Authentication & Authorization"
+      ],
+      "color": "success",
+      "price": "Liên hệ",
+      "duration": "1-3 tháng",
+      "detail": "Phát triển ứng dụng web full-stack với Node.js, Express, MongoDB hoặc MySQL. Tập trung vào scalability, security, và maintainability."
+    },
+    {
+      "id": 3,
+      "title": "Tư Vấn Công Nghệ",
+      "description": "Tư vấn giải pháp công nghệ tối ưu cho doanh nghiệp",
+      "icon": "graph-up",
+      "features": [
+        "Kiến trúc hệ thống",
+        "Lựa chọn công nghệ phù hợp",
+        "Bảo mật & Scalability",
+        "Performance optimization",
+        "Code review & Best practices"
+      ],
+      "color": "warning",
+      "price": "Liên hệ",
+      "duration": "Tùy dự án",
+      "detail": "Tư vấn công nghệ, kiến trúc hệ thống, và giải pháp kỹ thuật. Đánh giá hiện trạng và đề xuất cải tiến."
+    },
+    {
+      "id": 4,
+      "title": "Maintenance & Support",
+      "description": "Bảo trì và hỗ trợ website/ứng dụng",
+      "icon": "tools",
+      "features": [
+        "Regular updates",
+        "Security patches",
+        "Bug fixes",
+        "Performance monitoring",
+        "Technical support"
+      ],
+      "color": "info",
+      "price": "Theo gói",
+      "duration": "Hàng tháng",
+      "detail": "Dịch vụ bảo trì và hỗ trợ liên tục cho website và ứng dụng. Đảm bảo hệ thống luôn hoạt động ổn định và bảo mật."
+    }
+  ],
+  "statistics": {
+    "projects": 25,
+    "experience": 3,
+    "clients": 15,
+    "completion_rate": 99,
+    "happy_clients": 14,
+    "working_hours": 2000,
+    "code_commits": 1500,
+    "coffee_cups": 500
+  },
+  "contact_info": {
+    "email": "huynhtuananh.dev@gmail.com",
+    "phone": "+84 972 147 819",
+    "address": "Tuyên Quang, Việt Nam",
+    "working_hours": "Thứ 2 - Thứ 6: 8:00 - 18:00",
+    "emergency_contact": "Có sẵn 24/7 cho dự án urgent",
+    "social_links": {
+      "facebook": "https://facebook.com/tuananhdev",
+      "github": "https://github.com/tuananhdev",
+      "linkedin": "https://linkedin.com/in/tuananhdev",
+      "twitter": "https://twitter.com/tuananhdev",
+      "instagram": "https://instagram.com/tuananh.dev"
+    }
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn Khách",
+      "position": "CEO, TechStartup",
+      "content": "Tuấn Anh đã xây dựng website tuyệt vời cho công ty chúng tôi. Anh ấy rất chuyên nghiệp và tận tâm.",
+      "avatar": null,
+      "rating": 5,
+      "date": "2024-09-15"
+    },
+    {
+      "id": 2,
+      "name": "Trần Thị Khách",
+      "position": "Marketing Manager",
+      "content": "Dịch vụ thiết kế UI/UX xuất sắc. Tỉ lệ chuyển đổi tăng 30% sau khi launch website mới.",
+      "avatar": null,
+      "rating": 5,
+      "date": "2024-08-22"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1765045308007,
+      "name": "23",
+      "email": "123@gmail.com",
+      "subject": "2",
+      "message": "2",
+      "type": "freelance",
+      "date": "2025-12-06",
+      "time": "10:21:48",
+      "status": "read",
+      "newsletter": false,
+      "user_id": 1765045255635,
+      "user_role": "user"
+    },
+    {
+      "id": 1765115622667,
+      "name": "112",
+      "email": "112admin@example.com",
+      "subject": "1111",
+      "message": "1111",
+      "type": "collaboration",
+      "date": "2025-12-07",
+      "status": "new",
+      "newsletter": true,
+      "user_id": 1765045255635
+    },
+    {
+      "id": 1765115674574,
+      "name": "112",
+      "email": "112admin@example.com",
+      "subject": "1",
+      "message": "1",
+      "type": "consulting",
+      "date": "2025-12-07",
+      "status": "new",
+      "newsletter": false,
+      "user_id": 1765045255635
+    },
+    {
+      "id": 1765119204712,
+      "name": "áaaaaa",
+      "email": "aaaaadmin@example.com",
+      "subject": "123",
+      "message": "213",
+      "type": "freelance",
+      "date": "2025-12-07",
+      "status": "new",
+      "newsletter": false,
+      "user_id": 1765119192051
+    },
+    {
+      "id": 1765119858172,
+      "name": "Huỳnh Tuấn Anh",
+      "email": "admin@example.com",
+      "subject": "sa",
+      "message": "sóaa",
+      "type": "freelance",
+      "date": "2025-12-07",
+      "status": "new",
+      "newsletter": false,
+      "user_id": 1
+    },
+    {
+      "id": 1765195033442,
+      "name": "hosting",
+      "email": "anhtienong1111@gmail.com",
+      "subject": "1",
+      "message": "1",
+      "type": "freelance",
+      "date": "2025-12-08",
+      "status": "new",
+      "newsletter": false,
+      "user_id": 1765195021227
+    },
+    {
+      "id": 1765372840874,
+      "name": "emailtest",
+      "email": "lilwuyn2006@gmail.com",
+      "subject": "tét",
+      "message": "1111",
+      "type": "freelance",
+      "date": "2025-12-10",
+      "status": "new",
+      "newsletter": false,
+      "user_id": 1765372822584
+    },
+    {
+      "id": 1765375083205,
+      "name": "Rong Hai",
+      "email": "aaanhtienong@gmail.com",
+      "subject": "1",
+      "message": "1",
+      "type": "freelance",
+      "date": "2025-12-10",
+      "status": "read",
+      "newsletter": false,
+      "user_id": "116471976813895292068"
+    },
+    {
+      "id": 1765375614211,
+      "name": "Rong Hai",
+      "email": "aaanhtienong@gmail.com",
+      "subject": "gg",
+      "message": "1",
+      "type": "freelance",
+      "date": "2025-12-10",
+      "status": "new",
+      "newsletter": false,
+      "user_id": "116471976813895292068"
+    },
+    {
+      "id": 1765376263404,
+      "name": "Rong Hai",
+      "email": "aaanhtienong@gmail.com",
+      "subject": "1",
+      "message": "1",
+      "type": "collaboration",
+      "date": "2025-12-10",
+      "status": "new",
+      "newsletter": false,
+      "user_id": "116471976813895292068"
+    },
+    {
+      "id": 1765376370647,
+      "name": "Wuyn Lil",
+      "email": "lilwuyn2006@gmail.com",
+      "subject": "1",
+      "message": "123",
+      "type": "consulting",
+      "date": "2025-12-10",
+      "status": "new",
+      "newsletter": false,
+      "user_id": "100778499668641959815"
+    },
+    {
+      "id": 1765376875804,
+      "name": "Wuyn Lil",
+      "email": "lilwuyn2006@gmail.com",
+      "subject": "hihi",
+      "message": "1",
+      "type": "other",
+      "date": "2025-12-10",
+      "status": "new",
+      "newsletter": false,
+      "user_id": "100778499668641959815"
+    },
+    {
+      "id": 1765376941399,
+      "name": "Anh Huỳnh",
+      "email": "anhtienong@gmail.com",
+      "subject": "1",
+      "message": "1",
+      "type": "freelance",
+      "date": "2025-12-10",
+      "status": "new",
+      "newsletter": false,
+      "user_id": "117297381102972868304"
+    },
+    {
+      "id": 1765377582802,
+      "name": "Wuyn Lil",
+      "email": "lilwuyn2006@gmail.com",
+      "subject": "1",
+      "message": "1",
+      "type": "freelance",
+      "date": "2025-12-10",
+      "status": "new",
+      "newsletter": false,
+      "user_id": "100778499668641959815"
+    }
+  ],
+  "site_config": {
+    "title": "Portfolio - HUỲNH TUẤN ANH",
+    "description": "Portfolio cá nhân của Huỳnh Tuấn Anh - Full-Stack Web Developer chuyên nghiệp",
+    "author": "Huỳnh Tuấn Anh",
+    "theme_color": "#667eea",
+    "current_year": 2025,
+    "version": "2.0.0",
+    "last_updated": "2024-10-15"
+  }
 }
