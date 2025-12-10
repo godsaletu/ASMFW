@@ -8,13 +8,39 @@ const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
-// CORS fix
+// =======================
+// CORS MIDDLEWARE (ĐẶT Ở ĐẦU)
+// =======================
+const cors = require('cors');
+
+// Cho phép front-end của bạn gọi API
+server.use(cors({
+  origin: 'https://asmfw.vercel.app', // hoặc '*' nếu muốn mở cho tất cả
+  methods: ['GET','POST','PUT','DELETE','OPTIONS','PATCH'],
+  allowedHeaders: ['Origin','X-Requested-With','Content-Type','Accept','Authorization']
+}));
+
+// =======================
+// HEADER CHO GOOGLE POPUP
+// =======================
 server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  // Chỉ cho phép domain front-end
+  res.header('Access-Control-Allow-Origin', 'https://asmfw.vercel.app');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
+  // Cho phép preflight requests
   if (req.method === 'OPTIONS') return res.sendStatus(200);
+
   next();
+});
+
+
+// =======================
+// OPTIONS HANDLER
+// =======================
+server.options('*', (req, res) => {
+  res.sendStatus(200);
 });
 
 server.use(jsonServer.bodyParser);
