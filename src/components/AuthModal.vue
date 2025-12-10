@@ -1,7 +1,7 @@
 <script setup>
 import { ref, reactive, watch, defineProps, defineEmits, onMounted } from "vue"
 
-const API_URL = 'https://asmfw-8.onrender.com'
+const API_URL = 'https://asmfw-4.onrender.com'
 const props = defineProps(['show', 'initialMode'])
 const emit = defineEmits(['close', 'login-success', 'register-success', 'google-login-success'])
 
