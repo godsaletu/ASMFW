@@ -2,7 +2,7 @@ const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router('data.json');
 const middlewares = jsonServer.defaults();
-const nodemailer = require("nodemailer");
+const { Resend } = require('resend');
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
@@ -20,34 +20,11 @@ server.use((req, res, next) => {
 });
 
 // =======================
-// 📌 CẤU HÌNH EMAIL CHÍNH XÁC
+// 📌 CẤU HÌNH RESEND.COM
 // =======================
+const resend = new Resend('re_asKo8eZt_KGY83vpa7apDwMEqki9pPuSn');
 const ADMIN_EMAIL = "anhtienong@gmail.com";
-const ADMIN_PASSWORD = "hwor bkox eumj jmtj"; // App Password
-
-// Tạo transporter với cấu hình đúng
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false, // true for 465, false for other ports
-  requireTLS: true,
-  auth: {
-    user: ADMIN_EMAIL,
-    pass: ADMIN_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false
-  }
-});
-
-// Kiểm tra kết nối email
-transporter.verify(function(error, success) {
-  if (error) {
-    console.log("❌ Email connection error:", error);
-  } else {
-    console.log("✅ Email server is ready to send");
-  }
-});
+const FROM_EMAIL = "onboarding@resend.dev";
 
 // =======================
 // 📌 1. API gửi email từ form liên hệ (CHO ADMIN)
@@ -63,11 +40,11 @@ server.post("/api/send-contact-mail", async (req, res) => {
   }
 
   try {
-    // Gửi email thông báo cho ADMIN
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${ADMIN_EMAIL}>`,
+    // Gửi email thông báo cho ADMIN bằng Resend
+    await resend.emails.send({
+      from: FROM_EMAIL,
       to: ADMIN_EMAIL, // Chỉ gửi cho admin
-      replyTo: email, // Để admin có thể reply
+      reply_to: email, // Resend dùng reply_to thay vì replyTo
       subject: `[LIÊN HỆ MỚI] ${subject}`,
       text: `
 Liên hệ mới từ website:
@@ -111,7 +88,7 @@ Thời gian: ${new Date().toLocaleString('vi-VN')}
       `,
     });
 
-    console.log(`✅ Đã gửi thông báo liên hệ từ ${name} đến ADMIN`);
+    console.log(`✅ Đã gửi thông báo liên hệ từ ${name} đến ADMIN bằng Resend`);
     
     res.json({ 
       success: true, 
@@ -144,17 +121,17 @@ server.post("/api/send-reply", async (req, res) => {
   }
 
   try {
-    // 🎯 FIX QUAN TRỌNG: Kiểm tra email hợp lệ
+    // Kiểm tra email hợp lệ
     if (!to.includes('@') || !to.includes('.')) {
       throw new Error(`Email không hợp lệ: ${to}`);
     }
 
     console.log(`📤 Đang gửi phản hồi từ Admin đến: ${to}`);
     
-    // 🎯 FIX: Sử dụng cấu hình đơn giản hơn
-    const mailOptions = {
-      from: `"Huỳnh Tuấn Anh" <${ADMIN_EMAIL}>`,
-      to: to.trim(), // Email người dùng (Google email)
+    // Gửi email bằng Resend
+    const { data, error } = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: to.trim(), // Email người dùng
       subject: `[PHẢN HỒI] ${subject}`,
       text: `
 Xin chào ${replyToName || "bạn"},
@@ -218,25 +195,19 @@ Thời gian: ${new Date().toLocaleString('vi-VN')}
         </body>
         </html>
       `
-    };
-
-    // 🎯 THÊM: Debug thông tin email
-    console.log("📧 Mail options:", {
-      from: mailOptions.from,
-      to: mailOptions.to,
-      subject: mailOptions.subject
     });
 
-    // Gửi email
-    const info = await transporter.sendMail(mailOptions);
-    
+    if (error) {
+      throw new Error(error.message);
+    }
+
     console.log(`✅ Đã gửi phản hồi thành công đến: ${to}`);
-    console.log(`📨 Message ID: ${info.messageId}`);
+    console.log(`📨 Resend ID: ${data?.id}`);
     
     res.json({ 
       success: true, 
       message: "Đã gửi phản hồi thành công!",
-      messageId: info.messageId
+      messageId: data?.id
     });
 
   } catch (error) {
@@ -244,16 +215,7 @@ Thời gian: ${new Date().toLocaleString('vi-VN')}
     console.error("📧 Email gửi đến:", to);
     console.error("🔧 Error details:", error.message);
     
-    // 🎯 FIX: Kiểm tra lỗi cụ thể
     let errorMessage = "Gửi phản hồi thất bại";
-    
-    if (error.message.includes("550")) {
-      errorMessage = "Email người nhận không tồn tại hoặc không hợp lệ";
-    } else if (error.message.includes("535")) {
-      errorMessage = "Lỗi xác thực email. Kiểm tra App Password";
-    } else if (error.message.includes("connection")) {
-      errorMessage = "Lỗi kết nối đến máy chủ email";
-    }
     
     res.status(500).json({ 
       success: false, 
@@ -271,18 +233,22 @@ server.post("/api/test-email", async (req, res) => {
   const { to } = req.body;
   
   try {
-    const testMail = await transporter.sendMail({
-      from: `"Test Email" <${ADMIN_EMAIL}>`,
+    const { data, error } = await resend.emails.send({
+      from: FROM_EMAIL,
       to: to || ADMIN_EMAIL,
-      subject: "📧 Test Email từ Portfolio",
-      text: "Đây là email test để kiểm tra hệ thống gửi mail.",
-      html: "<p>Đây là email test để kiểm tra hệ thống gửi mail.</p>"
+      subject: "📧 Test Email từ Portfolio (Resend)",
+      text: "Đây là email test để kiểm tra hệ thống gửi mail bằng Resend.com",
+      html: "<p>Đây là email test để kiểm tra hệ thống gửi mail bằng <strong>Resend.com</strong></p>"
     });
+
+    if (error) {
+      throw new Error(error.message);
+    }
     
     res.json({
       success: true,
-      message: "Email test đã được gửi thành công!",
-      messageId: testMail.messageId,
+      message: "Email test đã được gửi thành công bằng Resend!",
+      messageId: data?.id,
       to: to || ADMIN_EMAIL
     });
     
@@ -303,7 +269,8 @@ server.listen(PORT, () => {
   console.log(`📨 POST /api/send-contact-mail (User → Admin)`);
   console.log(`📨 POST /api/send-reply (Admin → User)`);
   console.log(`📧 Email admin: ${ADMIN_EMAIL}`);
-  console.log(`🔐 Đang sử dụng App Password từ Gmail`);
+  console.log(`✉️  Email sender: ${FROM_EMAIL}`);
+  console.log(`🔄 Đang sử dụng Resend.com để gửi email`);
   console.log(`📌 Test API: POST /api/test-email`);
-  console.log(`⚠️ Kiểm tra App Password trong Gmail có đúng không!`);
+  console.log(`⚠️  Lưu ý: Resend chỉ gửi đến email đã xác minh trên dashboard`);
 });
